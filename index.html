@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz Adventure</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <header>
+    <h1>✨ Math Quiz Adventure</h1>
+    <p>Test your skills and have fun!</p>
+  </header>
+
+  <div class="game-wrapper">
+    <div class="operations-panel">
+      <h3>Choose Operations:</h3>
+      <div class="op-buttons">
+        <button class="op-btn active" data-op="add">➕ Addition</button>
+        <button class="op-btn" data-op="sub">➖ Subtraction</button>
+        <button class="op-btn" data-op="mul">✖️ Multiplication</button>
+        <button class="op-btn" data-op="div">➗ Division</button>
+      </div>
+      <div class="score-display">
+        <span>Score: </span>
+        <span id="score">0</span>
+      </div>
+    </div>
+
+    <div class="game-container">
+      <div id="game"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>MathQuiz Adventure 2025</p>
+  </footer>
+
+  <div id="feedback-popup" class="hidden"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
