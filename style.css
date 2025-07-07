@@ -1,0 +1,237 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #4a00e0;
+}
+
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.game-wrapper {
+  display: flex;
+  flex-grow: 1;
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.operations-panel {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.op-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.op-btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.op-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.op-btn.active {
+  background: #4a00e0;
+  font-weight: bold;
+}
+
+.score-display {
+  margin-top: auto;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.score-display span:last-child {
+  font-weight: bold;
+  color: #00d2ff;
+}
+
+.game-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game {
+  width: 600px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+}
+
+/* Feedback Popup */
+#feedback-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+#feedback-popup.correct {
+  color: #00aa00;
+  border: 3px solid #00aa00;
+}
+
+#feedback-popup.incorrect {
+  color: #ff0000;
+  border: 3px solid #ff0000;
+}
+
+#feedback-popup.hidden {
+  display: none;
+}
+
+/* Game UI Elements */
+.game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.question-display {
+  font-size: 5rem;
+  margin-bottom: 5rem;
+  color: #333;
+  text-align: center;
+}
+
+.answer-input {
+  width: 350px; /* Increased from 200px */
+  height: 80px; /* Increased from 50px */
+  font-size: 2.5rem; /* Larger text (32px) */
+  text-align: center;
+  border: 3px solid #9d50bb; /* Thicker border */
+  border-radius: 12px; /* Rounder corners */
+  margin-bottom: 1.5rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.answer-input:focus {
+  border-color: #4a00e0; /* Color change on focus */
+  box-shadow: 0 0 10px rgba(74, 0, 224, 0.3); /* Glow effect */
+}
+
+.submit-btn {
+  background: #4a00e0;
+  color: white;
+  border: none;
+  padding: 25px 50px; /* Bigger padding */
+  font-size: 2rem; /* Larger text (24px) */
+  border-radius: 12px; /* Rounder corners */
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 1.5rem;
+  min-width: 250px; /* Minimum width */
+}
+
+.submit-btn:hover {
+  background: #3a00c0;
+  transform: translateY(-2px) scale(1.02); /* Slight grow effect */
+}
+
+.next-btn {
+  background: #00aa00;
+  color: white;
+  border: none;
+  padding: 25px 50px; /* Same as submit button */
+  font-size: 1.5rem; /* Same as submit button */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 250px; /* Same as submit button */
+  display: none;
+}
+
+.next-btn:hover {
+  background: #009900;
+  transform: translateY(-2px);
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #f00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+}
